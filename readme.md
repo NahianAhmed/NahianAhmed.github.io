@@ -11,12 +11,11 @@ This is the personal portfolio website of Nahian Ahmed, a Software Engineer with
 - [Usage](#usage)
 - [File Structure](#file-structure)
 - [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Demo
 
-You can view a live demo of the portfolio [here](#).
+You can view a live demo of the portfolio [here](https://nahianahmed.github.io/).
 
 ## Features
 
@@ -48,13 +47,13 @@ To view and edit the portfolio, you need:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/username/portfolio.git
+   git clone https://github.com/NahianAhmed/NahianAhmed.github.io.git
    ```
 
 2. **Navigate to the project directory:**
 
    ```bash
-   cd portfolio
+   cd NahianAhmed.github.io.git
    ```
 
 3. **Open `index.html` in your web browser:**
@@ -75,8 +74,8 @@ To view and edit the portfolio, you need:
 portfolio/
 │
 ├── assets/
-│   ├── favicon.ico
-│   └── nahian-1.jpg
+│   ├── nahian-2.jpg
+│   └── nahian-3.jpg
 │
 ├── bootstrap/
 │   ├── css/
@@ -104,10 +103,6 @@ Contributions are welcome! Please follow these steps:
 5. Push to the branch (`git push origin feature-branch`).
 6. Open a Pull Request.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
 Nahian Ahmed  
@@ -115,5 +110,3 @@ Email: [mailingtonahian@gmail.com](mailto:mailingtonahian@gmail.com)
 LinkedIn: [https://www.linkedin.com/in/nahianofficial/](https://www.linkedin.com/in/nahianofficial/)
 
 ---
-
-Feel free to customize this README file according to your specific needs and preferences.
