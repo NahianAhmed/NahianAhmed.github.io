@@ -1,6 +1,6 @@
 # 🚀 Modern Portfolio of Nahian Ahmed
 
-A sleek, modern portfolio website showcasing the professional journey of Nahian Ahmed, a passionate Software Engineer with 3+ years of experience in Java, Spring, and cloud-native technologies. Built with cutting-edge web technologies featuring glassmorphism design, smooth animations, and mobile-first responsiveness.
+A sleek, modern portfolio website showcasing the professional journey of Nahian Ahmed, a passionate Software Engineer with 4+ years of experience in Java, Spring, and cloud-native technologies. Built with cutting-edge web technologies featuring glassmorphism design, smooth animations, and mobile-first responsiveness.
 
 ## ✨ Table of Contents
 
