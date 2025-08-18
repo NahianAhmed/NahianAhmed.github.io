@@ -8,286 +8,647 @@
     <meta name="author" content="Nahian Ahmed">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio of Nahian</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="assets/favicon.jpg" type="image/x-icon">
     <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06b6d4;
+            --success-color: #10b981;
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow-primary: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-secondary: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-secondary: linear-gradient(135deg, var(--accent-color), var(--success-color));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .navbar {
-            background-color: #1f1f1f !important;
+            background: rgba(15, 15, 35, 0.9) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .navbar-nav .nav-link {
-            color: #e0e0e0 !important;
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            margin: 0 0.5rem;
         }
 
-        .subheading a {
-            color: #e0e0e0 !important;
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
         }
 
-        @media (max-width: 576px) {
-            .navbar .navbar-nav {
-                text-align: center;
-            }
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
-        .main-section {
-            padding: 50px 0;
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
         }
 
-        .main-section h2 {
-            color: #bb86fc;
-            margin-bottom: 30px;
+        .hero-section {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 2rem 0;
         }
 
-        .main-section h3 {
-            color: #e0e0e0;
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .main-section .subheading {
-            color: #9e9e9e;
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-primary);
         }
 
-        .main-section .text-success {
-            color: #03dac6 !important;
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            background: var(--gradient-primary);
+            padding: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .name-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: var(--bg-card);
+            transform: translateX(10px);
+        }
+
+        .skill-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .experience-item {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-primary);
+            border-radius: 0 2px 2px 0;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-secondary);
+        }
+
+        .job-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-name {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-period {
+            color: var(--accent-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .job-description {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        .education-item {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .degree-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .university-name {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .hobby-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .hobby-item:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-5px);
         }
 
         .footer {
-            background-color: #1f1f1f;
-            color: #e0e0e0;
-            padding: 15px 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 2rem 0;
+            text-align: center;
         }
 
-        .fa-stack {
-            vertical-align: top;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .fa-stack .fa-square-o {
-            color: #bb86fc;
+        .grid {
+            display: grid;
+            gap: 2rem;
         }
 
-        .fa-stack .fa-linkedin,
-        .fa-stack .fa-github,
-        .fa-stack .fa-facebook {
-            color: #ffffff;
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
         }
 
-        .rounded-circle {
-            border: 3px solid #bb86fc;
-            width: 150px; /* Adjusted width */
-            height: 150px; /* Adjusted height */
+        .flex {
+            display: flex;
         }
 
-        .lead {
-            font-size: 1.2rem;
-            color: #cfcfcf;
+        .flex-col {
+            flex-direction: column;
         }
 
-        hr {
-            border-top: 2px solid #bb86fc;
-            margin: 50px 0;
+        .items-center {
+            align-items: center;
         }
 
-        .text-primary {
-            color: #bb86fc !important;
+        .justify-between {
+            justify-content: space-between;
         }
 
-        .bg-secondary {
-            background-color: #2c2c2c !important;
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .name-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 2rem;
+            }
+
+            .navbar-nav {
+                text-align: center;
+                padding-top: 1rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-            <div class="container">
+        <nav class="navbar" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+            <div class="container flex justify-between items-center">
                 <a class="navbar-brand" href="#">Nahian Ahmed</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" onclick="toggleNav()" style="background: none; border: none; color: var(--text-primary); font-size: 1.5rem; display: none;" id="navToggle">
+                    <i class="fas fa-bars"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills">Technological Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#experience">Job Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#education">Education</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#hobbies">Hobbies</a>
-                        </li>
-                    </ul>
+                <div class="navbar-nav" id="navbarNav">
+                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#skills">Skills</a>
+                    <a class="nav-link" href="#experience">Experience</a>
+                    <a class="nav-link" href="#education">Education</a>
+                    <a class="nav-link" href="#hobbies">Hobbies</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="main-section" id="about">
-            <div class="container mt-5 bg-secondary shadow p-5 rounded">
-                <div class="row">
-                    <div class="col-md-5">
-                        <h1 class="mb-0">Nahian Ahmed</h1>
-                        <div class="subheading mb-3">
-                            <p>Dhaka (+88) 01677035933</p>
-                            <a href="mailto:mailingtonahian@gmail.com">mailingtonahian@gmail.com</a>
-                        </div>
+        <section class="hero-section" id="about">
+            <div class="container">
+                <div class="card">
+                    <div class="grid grid-2 items-center">
                         <div>
-                            Find me on:
-                            <a href="https://www.linkedin.com/in/nahianofficial/">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-square-o fa-stack-2x"></i>
-                                    <i class="fa fa-linkedin fa-stack-1x"></i>
-                                </span>
-                            </a>
-                            <a href="https://github.com/NahianAhmed">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-square-o fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x"></i>
-                                </span>
-                            </a>
-                            <a href="https://facebook.com/nahianofficial">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-square-o fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x"></i>
-                                </span>
-                            </a>
+                            <h1 class="name-title">Nahian Ahmed</h1>
+                            <div class="subtitle">
+                                <p class="mb-4">📍 Dhaka, Bangladesh • 📞 (+88) 01677035933</p>
+                                <a href="mailto:mailingtonahian@gmail.com" class="subtitle" style="color: var(--accent-color); text-decoration: none;">✉️ mailingtonahian@gmail.com</a>
+                            </div>
+                            <div class="social-links">
+                                <span style="color: var(--text-secondary); margin-right: 1rem;">Find me on:</span>
+                                <a href="https://www.linkedin.com/in/nahianofficial/" class="social-icon">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/NahianAhmed" class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://facebook.com/nahianofficial" class="social-icon">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="profile-image">
+                                <img src="assets/nahian-3.jpg" alt="Nahian Ahmed" />
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-7 text-md-right text-center mt-4 mt-md-0">
-                        <img src="assets/nahian-3.jpg" class="rounded-circle img-fluid" alt="Nahian Ahmed" />
-                    </div>
-                </div>
-                <p class="lead mb-5 mt-4">
-                    I have the true desire to deliver maximum possible effort and to serve in any esteemed organization with utmost sincerity that offers challenges, accomplishing missions to achieve set goals with optimum perfection. I aim to build a career as a professional writing software that serves industry standards, following SOLID principles, design patterns, and agile methodologies. I have 3+ years of experience in software development using Java, Spring, JPA, Elasticsearch, Kafka, Docker, Redis, etc.
-                </p>
-            </div>
-        </section>
-
-        <hr>
-
-        <section class="main-section" id="skills">
-            <div class="container bg-secondary shadow p-5 rounded">
-                <h2 class="mb-5 text-center">Skills</h2>
-                <ul>
-                    <li>
-                        <h5>Programming Languages:</h5>
-                        <ul class="text-success">
-                            <li>Java</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h5>Framework and Technology:</h5>
-                        <ul class="text-success">
-                            <li>Spring Boot, Spring MVC, Spring Data JPA, Spring Security, Query DSL</li>
-                            <li>MySQL, Redis, Elasticsearch</li>
-                            <li>Monolith, Microservice</li>
-                            <li>Design Pattern, SOLID</li>
-                            <li>JWT, Kafka, Docker</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <hr>
-
-        <section class="main-section" id="experience">
-            <div class="container bg-secondary shadow p-5 rounded">
-                <h2 class="mb-5 text-center">Job Experience</h2>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div>
-                        <h3 class="mb-0">Software Engineer</h3>
-                        <div class="subheading mb-3">IdeaScale Bangladesh</div>
-                        <div class="text-success">
-                            Backend Development | Java | Spring | Microservice
-                        </div>
-                        <ul>
-                            <li>Worked on IdeaScale SaaS product used by 4.5+ million users.</li>
-                            <li>Developed new features on top of cloud-native architecture, using k8s, Docker, Elasticsearch, Kafka, Redis, Spring, Java 11, etc.</li>
-                            <li>Developed microservices and integrated them with different platforms like Salesforce, Slack, MS Teams, HubSpot.</li>
-                        </ul>
-                    </div>
-                    <div class="text-md-right text-start mt-3 mt-md-0">
-                        <span class="text-primary">Sep 2021 - Present</span>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div>
-                        <h3 class="mb-0">Software Engineer</h3>
-                        <div class="subheading mb-3">Keiken System Co, Ltd</div>
-                        <div class="text-success">Full-stack Java Developer | Spring</div>
-                        <ul>
-                            <li>Worked on ERP system development for clients in Japan.</li>
-                            <li>Developed systems using Java 8, Spring, JSP, MySQL, JPA, etc.</li>
-                            <li>Implemented batch jobs and authorization using Spring Security and JWT.</li>
-                        </ul>
-                    </div>
-                    <div class="text-md-right text-start mt-3 mt-md-0">
-                        <span class="text-primary">June 2020 - June 2021</span>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div>
-                        <h3 class="mb-0">Software Engineer</h3>
-                        <div class="subheading mb-3">Ultra-X BD Ltd</div>
-                        <div class="text-success">PHP, Laravel, JavaScript</div>
-                        <ul>
-                            <li>Worked on in-house software development.</li>
-                            <li>Involved in web technologies like PHP, Laravel, JS, HTML/CSS, AJAX, etc.</li>
-                        </ul>
-                    </div>
-                    <div class="text-md-right text-start mt-3 mt-md-0">
-                        <span class="text-primary">Dec 2019 - May 2020</span>
-                    </div>
+                    <p style="color: var(--text-secondary); margin-top: 2rem; font-size: 1.1rem; line-height: 1.8;">
+                        Passionate software engineer with 3+ years of experience building scalable applications using Java, Spring, and modern cloud technologies. I thrive on delivering high-quality solutions that follow industry standards, SOLID principles, and agile methodologies. My expertise spans microservices architecture, distributed systems, and full-stack development.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <hr>
-
-        <section class="main-section" id="education">
-            <div class="container bg-secondary shadow p-5 rounded">
-                <h2 class="mb-5 text-center">Education</h2>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div>
-                        <h3 class="mb-0">Daffodil International University</h3>
-                        <div class="subheading mb-3">Bachelor of Science</div>
-                        <div class="text-success">
-                            <div>Computer Science and Engineering</div>
-                            <p>CGPA: 3.88/4</p>
+        <section class="section" id="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="grid">
+                    <div class="skill-item">
+                        <h3 class="skill-title">Programming Languages</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Java</span>
                         </div>
                     </div>
-                    <div class="text-md-right text-start mt-3 mt-md-0">
-                        <span class="text-primary">January 2015 - January 2019</span>
+                    <div class="skill-item">
+                        <h3 class="skill-title">Frameworks & Libraries</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">Spring MVC</span>
+                            <span class="skill-tag">Spring Data JPA</span>
+                            <span class="skill-tag">Spring Security</span>
+                            <span class="skill-tag">Query DSL</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h3 class="skill-title">Databases & Storage</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">Elasticsearch</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h3 class="skill-title">Architecture & Patterns</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Microservices</span>
+                            <span class="skill-tag">Monolith</span>
+                            <span class="skill-tag">Design Patterns</span>
+                            <span class="skill-tag">SOLID Principles</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h3 class="skill-title">DevOps & Tools</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Apache Kafka</span>
+                            <span class="skill-tag">JWT</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <hr>
+        <section class="section" id="experience">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h3 class="job-title">Software Engineer</h3>
+                            <div class="company-name">IdeaScale Bangladesh</div>
+                            <div style="color: var(--success-color); font-weight: 500; margin-top: 0.5rem;">
+                                Backend Development • Java • Spring • Microservices
+                            </div>
+                        </div>
+                        <div class="job-period">Sep 2021 - Present</div>
+                    </div>
+                    <div class="job-description">
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">🚀 Architected and maintained IdeaScale SaaS platform serving 4.5+ million users worldwide</li>
+                            <li style="margin-bottom: 0.5rem;">☁️ Built cloud-native microservices using Kubernetes, Docker, Elasticsearch, Kafka, and Redis</li>
+                            <li style="margin-bottom: 0.5rem;">🔗 Developed seamless integrations with enterprise platforms including Salesforce, Slack, MS Teams, and HubSpot</li>
+                        </ul>
+                    </div>
+                </div>
 
-        <section class="main-section" id="hobbies">
-            <div class="container bg-secondary shadow p-5 rounded">
-                <h2 class="mb-5 text-center">Hobbies</h2>
-                <ul class="text-success">
-                    <li>Learning New Technologies</li>
-                    <li>Playing Video Games</li>
-                    <li>Watching Movies</li>
-                </ul>
+                <div class="experience-item">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h3 class="job-title">Software Engineer</h3>
+                            <div class="company-name">Keiken System Co, Ltd</div>
+                            <div style="color: var(--success-color); font-weight: 500; margin-top: 0.5rem;">
+                                Full-stack Java Developer • Spring Framework
+                            </div>
+                        </div>
+                        <div class="job-period">June 2020 - June 2021</div>
+                    </div>
+                    <div class="job-description">
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">🏢 Delivered enterprise ERP solutions for Japanese clients with high reliability standards</li>
+                            <li style="margin-bottom: 0.5rem;">⚙️ Developed robust systems using Java 8, Spring Framework, JSP, MySQL, and JPA</li>
+                            <li style="margin-bottom: 0.5rem;">🔐 Implemented secure batch processing and authentication systems using Spring Security and JWT</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h3 class="job-title">Software Engineer</h3>
+                            <div class="company-name">Ultra-X BD Ltd</div>
+                            <div style="color: var(--success-color); font-weight: 500; margin-top: 0.5rem;">
+                                PHP • Laravel • JavaScript
+                            </div>
+                        </div>
+                        <div class="job-period">Dec 2019 - May 2020</div>
+                    </div>
+                    <div class="job-description">
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 0.5rem;">💻 Developed internal software solutions to streamline business operations</li>
+                            <li style="margin-bottom: 0.5rem;">🌐 Utilized modern web technologies including PHP, Laravel, JavaScript, HTML/CSS, and AJAX</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                
+                <div class="education-item">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="degree-title">Bachelor of Science</h3>
+                            <div class="university-name">Daffodil International University</div>
+                            <div style="color: var(--success-color); font-weight: 500; margin-top: 0.5rem;">
+                                Computer Science and Engineering
+                            </div>
+                            <div style="color: var(--text-secondary); margin-top: 0.5rem;">
+                                🏆 CGPA: 3.88/4.00
+                            </div>
+                        </div>
+                        <div class="job-period">January 2015 - January 2019</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="hobbies">
+            <div class="container">
+                <h2 class="section-title">Interests & Hobbies</h2>
+                
+                <div class="hobby-grid">
+                    <div class="hobby-item">
+                        <i class="fas fa-code" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                        <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Learning New Technologies</h3>
+                        <p style="color: var(--text-secondary);">Always exploring cutting-edge frameworks and tools</p>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-gamepad" style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                        <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Gaming</h3>
+                        <p style="color: var(--text-secondary);">Enjoying strategic and adventure games</p>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-film" style="font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                        <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Cinema</h3>
+                        <p style="color: var(--text-secondary);">Passionate about storytelling through films</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -298,9 +659,46 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleNav() {
+            const nav = document.getElementById('navbarNav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile navigation toggle
+        window.addEventListener('resize', function() {
+            const toggle = document.getElementById('navToggle');
+            const nav = document.getElementById('navbarNav');
+            
+            if (window.innerWidth <= 768) {
+                toggle.style.display = 'block';
+                nav.style.display = 'none';
+            } else {
+                toggle.style.display = 'none';
+                nav.style.display = 'flex';
+            }
+        });
+
+        // Initial check for mobile
+        if (window.innerWidth <= 768) {
+            document.getElementById('navToggle').style.display = 'block';
+            document.getElementById('navbarNav').style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
