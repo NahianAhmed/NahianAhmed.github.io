@@ -115,15 +115,24 @@ Update CSS custom properties at the top of the `<style>` section:
 ```
 NahianAhmed.github.io/
 ├── 📁 assets/
-│   ├── 🖼️ favicon.jpg          # Site favicon
-│   └── 🖼️ nahian-3.jpg         # Profile image
+│   ├── 🖼️ favicon.png          # Site favicon (32x32)
+│   ├── 🖼️ apple-touch-icon.png # Apple touch icon (180x180)
+│   └── 🖼️ nahian.jpg           # Profile image (optimized)
 ├── 📄 index.html               # Main portfolio page
+├── 🎨 styles.css               # Separated CSS for better caching
+├── 🤖 robots.txt               # Search engine crawler instructions
+├── 🗺️ sitemap.xml              # Site structure for SEO
+├── 🚫 404.html                 # Custom error page
 └── 📋 README.md               # Project documentation
 ```
 
 ### 🗂️ Directory Details
-- **`assets/`**: Optimized images and icons
-- **`index.html`**: Single-file portfolio with embedded CSS and JavaScript
+- **`assets/`**: Optimized images and icons (favicon, profile picture, Apple touch icon)
+- **`index.html`**: Main portfolio page with semantic HTML and accessibility features
+- **`styles.css`**: External stylesheet for better caching and maintainability
+- **`robots.txt`**: Search engine crawler configuration
+- **`sitemap.xml`**: XML sitemap for better SEO
+- **`404.html`**: Custom 404 error page
 - **`README.md`**: Comprehensive project documentation
 
 ### 🧹 Clean Architecture
@@ -176,7 +185,7 @@ Contributions are welcome! Whether it's bug fixes, feature enhancements, or desi
 ### 👨‍💻 Nahian Ahmed
 **Software Engineer | Java | Spring | Cloud Technologies**
 
-- 📧 **Email**: [mailingtonahian@gmail.com](mailto:mailingtonahian@gmail.com)
+- 📧 **Email**: [nahianofficially@gmail.com](mailto:nahianofficially@gmail.com)
 - 💼 **LinkedIn**: [linkedin.com/in/nahianofficial](https://www.linkedin.com/in/nahianofficial/)
 - 🐙 **GitHub**: [github.com/NahianAhmed](https://github.com/NahianAhmed)
 - 🌐 **Portfolio**: [nahianahmed.github.io](https://nahianahmed.github.io/)
@@ -189,6 +198,6 @@ Contributions are welcome! Whether it's bug fixes, feature enhancements, or desi
 
 **Built with ❤️ using modern web technologies**
 
-*© 2025 Nahian Ahmed. All rights reserved.*
+*© 2026 Nahian Ahmed. All rights reserved.*
 
 </div>

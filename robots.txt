@@ -1,0 +1,9 @@
+# robots.txt for nahianahmed.github.io
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nahianahmed.github.io/sitemap.xml
+
+# Crawl delay (optional - be nice to servers)
+Crawl-delay: 1
